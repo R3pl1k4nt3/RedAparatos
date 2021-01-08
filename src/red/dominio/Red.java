@@ -24,16 +24,15 @@ public class Red {
 	}
 
 	public int getConsumoActual() {
-		int consumo = 0;
+		int consumoActual = 0;
 		for (Aparato aparato : aparatos) {
-			consumo += aparato.getConsumoActual();
+			consumoActual += aparato.getConsumoActual();
 		}
-		return consumo;
+		return consumoActual;
 	}
 
 	public boolean esEstable() {
-		
-		return getConsumoActual() <= consumoMaximo;
+			return getConsumoActual() <= consumoMaximo;
 	}
 
 	public Collection<Aparato> getAparatos() {

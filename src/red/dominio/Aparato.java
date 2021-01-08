@@ -13,14 +13,6 @@ public class Aparato {
 		return consumo;
 	}
 
-	public Aparato(int consumo) {
-
-		this.consumo = consumo;
-	}
-	
-
-	
-
 	public Aparato(String nombre, int consumo) {
 		super();
 		this.nombre = nombre;
@@ -31,10 +23,6 @@ public class Aparato {
 		return encendido;
 	}
 
-	public void setEncendido(boolean encendido) {
-		this.encendido = encendido;
-	}
-
 	public void apagar() {
 		encendido = false;
 	}
@@ -42,19 +30,23 @@ public class Aparato {
 	public void encender() {
 		encendido = true;
 	}
+
 	public int getConsumoActual() {
-		int consumoActual = 0;
 		if (encendido) {
-			consumoActual = consumo;
+			return consumo;
 		}
-		return consumoActual;
+		return 0;
 	}
 
 	@Override
 	public String toString() {
-		return getNombre() + ", Consumo = " + getConsumo() + "W. Est� encendido? "
-				+ isEncendido();
+		return getNombre() + ", Consumo = " + getConsumo() + "W. Est� encendido? " + isEncendido();
 	}
-	
-	
+
+	public void solicitudApagado() {
+		System.out.println("Solicitud de apagado aceptada para el aparato " + this.toString());
+		apagar();
+		
+	}
+
 }
