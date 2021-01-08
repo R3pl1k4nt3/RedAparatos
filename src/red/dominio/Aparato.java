@@ -40,7 +40,7 @@ public class Aparato {
 
 	@Override
 	public String toString() {
-		return getNombre() + ", Consumo = " + getConsumo() + "W. Estï¿½ encendido? " + isEncendido();
+		return getNombre() + ", Consumo = " + getConsumo() + "W. Está encendido? " + isEncendido();
 	}
 
 	public void solicitudApagado() {

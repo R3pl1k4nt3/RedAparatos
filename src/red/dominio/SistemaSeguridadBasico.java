@@ -5,8 +5,8 @@ import java.util.List;
 
 public class SistemaSeguridadBasico extends SistemaSeguridad {
 
-	public SistemaSeguridadBasico(Red red) {
-		super(red);
+	public SistemaSeguridadBasico(Red red, Alarma alarma) {
+		super(red, alarma);
 	}
 
 	@Override

@@ -5,12 +5,15 @@ import java.util.List;
 public abstract class SistemaSeguridad {
 	
 	protected Red red;
-
-	public SistemaSeguridad(Red red) {
+	private Alarma alarma;
+	
+	public SistemaSeguridad(Red red, Alarma alarma) {
 		this.red = red;
+		this.alarma = alarma;
 	}
 	
 	public boolean actuar() {
+		
 		System.out.println("Empezando las comprobaciones del sistema");
 		for (Aparato aparato : getAparatos()) {
 			if (red.esEstable()) {
@@ -26,7 +29,11 @@ public abstract class SistemaSeguridad {
 //			}
 			
 		}
-		return red.esEstable();
+		boolean esEstable = red.esEstable();
+		if ( ! esEstable) {
+			alarma.activa();
+		}
+		return esEstable;
 	}
 	protected abstract List<Aparato> getAparatos() ; 
 }
