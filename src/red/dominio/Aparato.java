@@ -3,6 +3,11 @@ package red.dominio;
 public class Aparato {
 	private boolean encendido;
 	private final int consumo;
+	private String nombre;
+
+	public String getNombre() {
+		return nombre;
+	}
 
 	public int getConsumo() {
 		return consumo;
@@ -10,6 +15,15 @@ public class Aparato {
 
 	public Aparato(int consumo) {
 
+		this.consumo = consumo;
+	}
+	
+
+	
+
+	public Aparato(String nombre, int consumo) {
+		super();
+		this.nombre = nombre;
 		this.consumo = consumo;
 	}
 
@@ -35,5 +49,12 @@ public class Aparato {
 		}
 		return consumoActual;
 	}
+
+	@Override
+	public String toString() {
+		return getNombre() + ", Consumo = " + getConsumo() + "W. Est� encendido? "
+				+ isEncendido();
+	}
+	
 	
 }
