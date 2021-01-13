@@ -32,10 +32,11 @@ public class Aparato {
 	}
 
 	public int getConsumoActual() {
+		int consumoActual = 0;
 		if (encendido) {
-			return consumo;
+			consumoActual = consumo;
 		}
-		return 0;
+		return consumoActual;
 	}
 
 	@Override

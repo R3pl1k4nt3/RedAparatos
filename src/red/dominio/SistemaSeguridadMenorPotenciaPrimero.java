@@ -15,15 +15,15 @@ public class SistemaSeguridadMenorPotenciaPrimero extends SistemaSeguridad {
 	@Override
 	protected List<Aparato> getAparatos() {
 		List<Aparato> aparatos = new ArrayList<>(red.getAparatos());
-		
-		Collections.sort(aparatos, new Comparator<Aparato>() {
-
-			@Override
-			public int compare(Aparato o1, Aparato o2) {
-				return o1.getConsumoActual() - o2.getConsumoActual();
-			}
-
-		});
+		Collections.sort(aparatos,Comparator.comparing(Aparato::getConsumoActual));
+//		Collections.sort(aparatos, new Comparator<Aparato>() {
+//
+//			@Override
+//			public int compare(Aparato o1, Aparato o2) {
+//				return o1.getConsumoActual() - o2.getConsumoActual();
+//			}
+//
+//		});
 		return aparatos;
 	}
 
