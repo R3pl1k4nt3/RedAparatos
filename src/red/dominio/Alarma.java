@@ -1,5 +1,5 @@
 package red.dominio;
 
 public interface Alarma {
-	void activa();
+	void activar();
 }

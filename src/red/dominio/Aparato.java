@@ -1,7 +1,11 @@
 package red.dominio;
 
-public class Aparato {
+public class Aparato implements ConConsumo, Activable {
+    public final int APAGADO = 0;
+    public final int ENCENDIDO = 1;
+    public final int STAND_BY = 2;
 	private boolean encendido;
+	private int estado = APAGADO;
 	private final int consumo;
 	private String nombre;
 
@@ -13,41 +17,51 @@ public class Aparato {
 		return consumo;
 	}
 
+    public boolean isEncendido() {
+        return encendido;
+    }
+    
+    public boolean setEncendido(boolean encendido) {
+        if (encendido) {
+            setEstado(ENCENDIDO);
+        } else {
+            setEstado(APAGADO);
+        }
+        
+        return getEstado() == ENCENDIDO;
+    }
+
+    public int getConsumoActual() {
+        return isEncendido() ? getConsumo() : 0;
+    }
+
+    public int getEstado() {
+        return estado;
+    }
+    
+    public void setEstado(int estado) {
+        this.estado = estado;
+    }
+    
 	public Aparato(String nombre, int consumo) {
 		super();
 		this.nombre = nombre;
 		this.consumo = consumo;
 	}
 
-	public boolean isEncendido() {
-		return encendido;
-	}
-
 	public void apagar() {
-		encendido = false;
+		//encendido = false;
+	    setEncendido(false);
 	}
 
 	public void encender() {
-		encendido = true;
+		//encendido = true;
+	    setEncendido(true);
 	}
-
-	public int getConsumoActual() {
-		int consumoActual = 0;
-		if (encendido) {
-			consumoActual = consumo;
-		}
-		return consumoActual;
-	}
-
+	
 	@Override
 	public String toString() {
-		return getNombre() + ", Consumo = " + getConsumo() + "W. Está encendido? " + isEncendido();
-	}
-
-	public void solicitudApagado() {
-		System.out.println("Solicitud de apagado aceptada para el aparato " + this.toString());
-		apagar();
-		
+		return getNombre() + ", Consumo = " + getConsumo() + "W. Estï¿½ encendido? " + isEncendido();
 	}
 
 }

@@ -2,15 +2,16 @@ package red.dominio;
 
 public class AparatoCritico extends Aparato {
 
+    @Override
+    public boolean setEncendido(boolean encendido) {
+        if (isEncendido()) {
+            setEncendido(true);
+        }
+        return super.setEncendido(encendido);
+    }
+    
 	public AparatoCritico(String nombre, int consumo) {
 		super(nombre, consumo);
-	}
-
-	@Override
-	public void solicitudApagado() {
-		//ignoramos la peticion de apagado al ser critico
-		System.out.println("Se ignora la peticion de apagado por ser critico");
-	}
-	
+	}	
 	
 }

@@ -4,8 +4,12 @@ import java.util.List;
 
 public abstract class SistemaSeguridad {
 	
-	protected Red red;
+    private Red red;
 	private Alarma alarma;
+	
+	protected Red getRed() {
+      return red;
+    }
 	
 	public SistemaSeguridad(Red red, Alarma alarma) {
 		this.red = red;
@@ -20,7 +24,7 @@ public abstract class SistemaSeguridad {
 				System.out.println("La red se encuentra correctamente asegurada. SALIMOS");
 				break;
 			}
-			aparato.solicitudApagado();
+			solicitudApagado(aparato);
 //			if ( !(aparato instanceof AparatoCritico)) {
 //				System.err.println("Por seguridad se va a apagar: " + aparato);
 //				aparato.apagar();
@@ -31,9 +35,20 @@ public abstract class SistemaSeguridad {
 		}
 		boolean esEstable = red.esEstable();
 		if ( ! esEstable) {
-			alarma.activa();
+			alarma.activar();
 		}
 		return esEstable;
 	}
-	protected abstract List<Aparato> getAparatos() ; 
+	
+	protected abstract List<Aparato> getAparatos();
+
+    public void solicitudApagado(Aparato aparato) {
+        boolean resultado = aparato.setEncendido(false);
+        if (resultado) {
+            System.out.println("Se ignora la peticion de apagado en " + aparato);
+        } else {
+            System.out.println("Solicitud de apagado aceptada para el aparato " + aparato);
+        }
+        
+    }
 }

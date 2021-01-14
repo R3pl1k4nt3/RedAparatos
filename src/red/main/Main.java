@@ -1,15 +1,11 @@
 package red.main;
 
-import java.util.HashSet;
-import java.util.Set;
-
 import red.dominio.AlarmaSonora;
 import red.dominio.Aparato;
 import red.dominio.AparatoConsumoMinimoCritico;
 import red.dominio.AparatoCritico;
 import red.dominio.Red;
 import red.dominio.SistemaSeguridad;
-import red.dominio.SistemaSeguridadBasico;
 import red.dominio.SistemaSeguridadMenorPotenciaPrimero;
 
 public class Main {

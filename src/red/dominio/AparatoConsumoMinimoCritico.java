@@ -9,13 +9,13 @@ public class AparatoConsumoMinimoCritico extends AparatoCritico {
 		this.consumoMinimo = consumoMinimo;
 	}
 
-	@Override
-	public void solicitudApagado() {
-		if (isEncendido()) {
-			consumoActual = consumoMinimo;
-			System.out.println("Pasamos a consumo minimo " + toString());
-		}
-	}
+//	@Override
+//	public void solicitudApagado() {
+//		if (isEncendido()) {
+//			consumoActual = consumoMinimo;
+//			System.out.println("Pasamos a consumo minimo " + toString());
+//		}
+//	}
 
 	@Override
 	public String toString() {
@@ -29,20 +29,20 @@ public class AparatoConsumoMinimoCritico extends AparatoCritico {
 		return consumoActual > 0;
 	}
 
-	@Override
-	public void apagar() {
-		consumoActual = 0;
-	}
+//	@Override
+//	public void apagar() {
+//		consumoActual = 0;
+//	}
+//
+//	@Override
+//	public void encender() {
+//		consumoActual = getConsumo();
+//	}
 
-	@Override
-	public void encender() {
-		consumoActual = getConsumo();
-	}
-
-	@Override
-	public int getConsumoActual() {
-		return consumoActual;
-	}
+//	@Override
+//	public int getConsumoActual() {
+//		return consumoActual;
+//	}
 	
 	
 
